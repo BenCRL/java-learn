@@ -1,0 +1,54 @@
+.page {
+	float: right;
+	line-height: 35px;
+	font-size: 12px;
+}
+
+.page span {
+	display: inline-block;
+	color: #999;
+	height: 25px;
+	line-height: 25px;
+}
+
+.page ul {
+	float: right;
+	margin: 4px 3px 0;
+	height: 27px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.page ul li {
+	float: left;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+
+.page ul li.first {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.page ul li.last {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.page ul li a {
+	display: block;
+	padding: 0 10px;
+	height: 25px;
+	text-align: center;
+	line-height: 25px;
+}
+
+.page ul li a:hover {
+	background: #463477 !important;
+	color: #fff !important;
+}
+
+.page .pager_num {
+	color: red;
+	font-size: 16px;
+}
