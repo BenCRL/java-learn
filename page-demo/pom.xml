@@ -53,9 +53,28 @@
 					<source>1.7</source><!-- 源代码使用的开发版本 -->
 					<target>1.7</target><!-- 需要生成的目标class文件的编译版本 -->
 					<encoding>UTF-8</encoding>
+					<testIncludes>
+						<testInclude>none</testInclude>
+					</testIncludes>
 					<includes>
 						<include>**/*.*</include>
 					</includes>
+				</configuration>
+			</plugin>
+			<!-- maven jetty服务器运行插件  -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.0.v20161208</version>
+				<configuration>
+					<httpConnector><!-- 链接配置  -->
+						<port>8080</port><!-- 默认8080端口  -->
+					</httpConnector>
+					<!-- 
+					<webApp>
+						<contextPath>page-demo</contextPath>
+					</webApp>
+					-->
 				</configuration>
 			</plugin>
 		</plugins>
