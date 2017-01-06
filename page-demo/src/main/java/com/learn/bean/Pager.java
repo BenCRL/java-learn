@@ -53,6 +53,11 @@ public class Pager {
     }
 
     public Integer getPageCount() {
+        // 总页数 = (总记录数 / 每页记录数) 如果有余数,则加1
+        this.pageCount = this.totalCount / this.pageSize;
+        if (this.totalCount % this.pageSize > 0) {// 不能整除,则证明有余数,总页数再加一
+            this.pageCount++;
+        }
         return pageCount;
     }
 

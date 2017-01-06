@@ -1,5 +1,32 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/pages/commons/taglibs.jsp"%>
+<!DOCTYPE html>
 <html>
+<head>
+<title>分页汇总</title>
+<%@include file="/WEB-INF/pages/commons/inc.jsp"%>
+</head>
 <body>
-<h2>Hello World!</h2>
+	<div>
+		<h1>分页汇总</h1>
+		<div class="col-md-6">
+			<table class="table table-bordered">
+				<tr>
+					<td>
+						<a href="#">原生分页</a>
+					</td>
+					<td>
+						<a href="${ctx}/">jquery.pager.js分页</a>
+					</td>
+					<td>
+						<a href="#">jquery.pager.js分页</a>
+					</td>
+					<td>
+						<a href="#">jquery.pager.js分页</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </body>
 </html>

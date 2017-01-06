@@ -6,31 +6,187 @@
 	<version>1.0</version>
 	<name>page-demo</name>
 	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>4.2.5.RELEASE</spring.version>
+		<junit.version>4.12</junit.version>
+		<fastjson.version>1.2.8</fastjson.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.19</slf4j.version>
+		<aspectjweaver.version>1.8.8</aspectjweaver.version>
+		<jstl.version>1.2</jstl.version>
+		<taglibs.version>1.1.2</taglibs.version>
+		<javax.servlet.version>3.1.0</javax.servlet.version>
+		<jackson.version>2.7.4</jackson.version>
+		<commons.lang3.version>3.3.2</commons.lang3.version>
+		<commons.fileupload.version>1.3.1</commons.fileupload.version>
+		<commons.collections.version>3.2.1</commons.collections.version>
+		<commons.io.version>2.4</commons.io.version>
+	</properties>
 	<dependencies>
+		<!--common start -->
+
+		<!-- Log start -->
 		<dependency>
-			<!-- 使用junit4 -->
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- Log end -->
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons.lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons.io.version}</version>
+		</dependency>
+
+		<!-- FileUpload -->
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>${commons.fileupload.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>${commons.collections.version}</version>
+		</dependency>
+
+		<!-- JUnit -->
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<!--Severlet Web 相关依赖 -->
+
+		<!-- AOP -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectjweaver.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+		<!--common end -->
+		<!--Severlet Web 相关依赖 start -->
 		<!--2个标签库 -->
 		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
-			<version>1.1.2</version>
+			<version>${taglibs.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
-			<version>1.2</version>
+			<version>${jstl.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.1.0</version>
+			<version>${javax.servlet.version}</version>
 		</dependency>
+		<!--Severlet Web 相关依赖 end -->
+		<!-- spring依赖 start -->
+		<!--1)spring核心依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!--2)spring web相关依赖 start -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!--2)spring web相关依赖 end -->
+		<!-- spring依赖 end -->
 	</dependencies>
 	<build>
 		<finalName>page-demo</finalName>
@@ -61,20 +217,18 @@
 					</includes>
 				</configuration>
 			</plugin>
-			<!-- maven jetty服务器运行插件  -->
+			<!-- maven jetty服务器运行插件 -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.4.0.v20161208</version>
 				<configuration>
-					<httpConnector><!-- 链接配置  -->
-						<port>8080</port><!-- 默认8080端口  -->
+					<httpConnector><!-- 链接配置 -->
+						<port>8080</port><!-- 默认8080端口 -->
 					</httpConnector>
-					<!-- 
 					<webApp>
-						<contextPath>page-demo</contextPath>
+						<contextPath>/page-demo</contextPath>
 					</webApp>
-					-->
 				</configuration>
 			</plugin>
 		</plugins>
