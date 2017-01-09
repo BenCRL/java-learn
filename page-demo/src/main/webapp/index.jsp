@@ -16,7 +16,7 @@
 						<a href="#">原生分页</a>
 					</td>
 					<td>
-						<a href="${ctx}/">jquery.pager.js分页</a>
+						<a href="${ctx}/jqueryPager/index">jquery.pager.js分页</a>
 					</td>
 					<td>
 						<a href="#">jquery.pager.js分页</a>
