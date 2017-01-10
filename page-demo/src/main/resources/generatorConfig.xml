@@ -2,28 +2,55 @@
 <!DOCTYPE generatorConfiguration
   PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
   "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置参考文章1:http://blog.csdn.net/isea533/article/details/42102297 -->
+<!-- 配置参考文章2:http://blog.csdn.net/pk490525/article/details/16819307 -->
 <generatorConfiguration>
+	<!-- 引入配置文件 resource:指定**classpath**下的属性文件 url：可以指定文件系统上的特定位置 -->
+	<properties resource="jdbc.properties" />
+	<!-- 指定数据连接驱动jar地址 -->
+	<!-- <classPathEntry location="${classPath}" /> -->
+	<!-- 一个数据库一个context -->
 	<context id="MysqlContext" targetRuntime="MyBatis3" defaultModelType="flat">
 		<property name="beginningDelimiter" value="`" />
 		<property name="endingDelimiter" value="`" />
-
+		<!-- 注释 -->
 		<commentGenerator>
-			<property name="suppressDate" value="true" />
+			<property name="suppressAllComments" value="false" /><!-- 是否取消注释 -->
+			<property name="suppressDate" value="true" /><!-- 是否生成注释时间戳 -->
 		</commentGenerator>
-
-		<jdbcConnection driverClass="${mybatis.generator.jdbcDriver}" connectionURL="${mybatis.generator.jdbcURL}" userId="root" password="root">
+		<!-- jdbc连接 -->
+		<jdbcConnection driverClass="${jdbc.driverClassName}" connectionURL="${jdbc.url}" userId="${jdbc.username}" password="${jdbc.password}">
 		</jdbcConnection>
 
-		<javaModelGenerator targetPackage="com.learn.entity" targetProject="H:\working\study\java-learn\page-demo\src\main\java">
+		<!-- 类型转换 -->
+		<javaTypeResolver>
+			<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+			<!-- <property name="forceBigDecimals" value="false" /> -->
+		</javaTypeResolver>
+		<!-- 生成实体类地址 -->
+		<javaModelGenerator targetPackage="${targetModelPackage}" targetProject="${targetJavaProject}">
+			<!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+			<!-- <property name="enableSubPackages" value="false" /> -->
+			<!-- 是否针对string类型的字段在set的时候进行trim调用 -->
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
-
-		<sqlMapGenerator targetPackage="test.xml" targetProject="H:\working\study\java-learn\page-demo\src\main\resources\mapper" />
-
-		<javaClientGenerator type="XMLMAPPER" targetPackage="com.learn.dao" targetProject="H:\working\study\java-learn\page-demo\src\main\java" />
-
-		<table tableName="%">
+		<!-- 生成mapxml文件 -->
+		<sqlMapGenerator targetPackage="${targetXMLPackage}" targetProject="${targetResourcesProject}">
+			<!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+			<!-- <property name="enableSubPackages" value="false" /> -->
+		</sqlMapGenerator>
+		<!-- 生成mapxml对应client，也就是接口dao -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="${targetMapperPackage}" targetProject="${targetJavaProject}">
+			<!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+			<!-- <property name="enableSubPackages" value="false" /> -->
+		</javaClientGenerator>
+		<!-- 配置表信息 -->
+		<table tableName="%" enableCountByExample="false" enableSelectByExample="false" enableDeleteByExample="false" enableUpdateByExample="false">
 			<generatedKey column="id" sqlStatement="Mysql" />
+			<!-- 忽略列，不生成bean 字段 -->
+			<!-- <ignoreColumn column="FRED" /> -->
+			<!-- 指定列的java数据类型 -->
+			<!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->
 		</table>
 	</context>
 
