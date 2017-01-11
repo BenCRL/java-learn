@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd"
+>
+	<!-- 
+		spring配置汇总,此处需要排除spring-mvc.xml配置,
+		因为在web.xml中DispatcherServlet已经配置了,此处不引入，防止重复加载 
+	 -->
+	<import resource="spring-dao.xml"/>
+</beans>

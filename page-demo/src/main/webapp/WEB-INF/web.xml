@@ -5,7 +5,6 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring/spring.xml</param-value>
 	</context-param>
-
 	<!-- 字符集 过滤器 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -37,7 +36,7 @@
 		<init-param>
 			<description>SpringMVC</description>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:spring/spring-web.xml</param-value>
+			<param-value>classpath:spring/spring-*.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/jqueryPager")
 public class JqueryPagerController {
+    
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(Paper paper, ModelMap modelMap, HttpServletRequest request) {
         return "jqueryPager/index";

@@ -9,17 +9,17 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		 <!-- MyBatis Generator  -->
-        <!--  Java接口和实体类  -->
-        <targetJavaProject>${basedir}/src/main/java</targetJavaProject>
-        <targetMapperPackage>com.learn.mapper</targetMapperPackage>
-        <targetModelPackage>com.learn.entity</targetModelPackage>
-        <!--  XML生成路径  -->
-        <targetResourcesProject>${basedir}/src/main/resources/</targetResourcesProject>
-        <targetXMLPackage>mapper</targetXMLPackage>
-        <!--  编译jdk版本  -->
-        <jdk.version>1.7</jdk.version>
-        <!--  依赖版本  -->
+		<!-- MyBatis Generator -->
+		<!-- Java接口和实体类 -->
+		<targetJavaProject>${basedir}/src/main/java</targetJavaProject>
+		<targetMapperPackage>com.learn.mapper</targetMapperPackage>
+		<targetModelPackage>com.learn.entity</targetModelPackage>
+		<!-- XML生成路径 -->
+		<targetResourcesProject>${basedir}/src/main/resources/</targetResourcesProject>
+		<targetXMLPackage>mapper</targetXMLPackage>
+		<!-- 编译jdk版本 -->
+		<jdk.version>1.7</jdk.version>
+		<!-- 依赖版本 -->
 		<spring.version>4.2.5.RELEASE</spring.version>
 		<junit.version>4.12</junit.version>
 		<fastjson.version>1.2.8</fastjson.version>
@@ -144,22 +144,22 @@
 			<version>${spring.version}</version>
 		</dependency>
 		<!--1)spring核心依赖 end -->
-		
-        <!--2)spring dao层依赖 start -->       
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
+
+		<!--2)spring dao层依赖 start -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-        <!--2)spring dao层依赖 end -->    
-        
-        <!--3)spring AOP依赖 start -->    
+		<!--2)spring dao层依赖 end -->
+
+		<!--3)spring AOP依赖 start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
@@ -182,16 +182,16 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-expression</artifactId>
 			<version>${spring.version}</version>
-		</dependency>     
-		<!--3)spring AOP依赖 end -->   
+		</dependency>
+		<!--3)spring AOP依赖 end -->
 
-        <!-- 4)spring test相关依赖 start -->
+		<!-- 4)spring test相关依赖 start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-        <!-- 4)spring test相关依赖 end -->
+		<!-- 4)spring test相关依赖 end -->
 
 		<!--5)spring web相关依赖 start -->
 
@@ -215,8 +215,8 @@
 
 		<!--5)spring web相关依赖 end -->
 		<!-- spring依赖 end -->
-		
-		<!-- 数据库相关依赖 start  -->
+
+		<!-- 数据库相关依赖 start -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -225,9 +225,9 @@
 		</dependency>
 
 		<dependency>
-	        <groupId>com.alibaba</groupId>
-	        <artifactId>druid</artifactId>
-	        <version>${druid.version}</version>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>${druid.version}</version>
 		</dependency>
 
 		<dependency>
@@ -241,100 +241,81 @@
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis.spring.version}</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<finalName>page-demo</finalName>
-		<!-- 
-		<resources>
-			<resource>
-				<filtering>true</filtering>
-				<directory>${project.basedir}/src/main/resources</directory>
-				<includes>
-					<include>*.properties</include>
-				</includes>
-			</resource>
-		</resources>
-		 -->
-			<plugins>
-				<!-- maven测试用例插件 -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<configuration>
-						<skipTests>true</skipTests><!-- 跳过测试用例 -->
-					</configuration>
-				</plugin>
-				
-				<!-- maven编译源码插件 -->
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.2</version>
-					<configuration>
-						<!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中需要没有使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->
-						<source>${jdk.version}</source><!-- 源代码使用的开发版本 -->
-						<target>${jdk.version}</target><!-- 需要生成的目标class文件的编译版本 -->
-						<encoding>UTF-8</encoding>
-						<testIncludes>
-							<testInclude>none</testInclude>
-						</testIncludes>
-						<includes>
-							<include>**/*.*</include>
-						</includes>
-					</configuration>
-				</plugin>
-				
-				<!-- maven jetty服务器运行插件 -->
-				<plugin>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-maven-plugin</artifactId>
-					<version>9.4.0.v20161208</version>
-					<configuration>
-						<httpConnector><!-- 链接配置 -->
-							<port>8080</port><!-- 默认8080端口 -->
-						</httpConnector>
-						<webApp>
-							<contextPath>/page-demo</contextPath>
-						</webApp>
-					</configuration>
-				</plugin>
-				
-				<!-- maven mybatis generator 代码自动生成器插件 -->
-				<!-- 运行方法:1.加入到maven构建的一部分自动去执行,具体请打开下面的<executions>标签 2.可以在命令行通过以下命令执行: mvn mybatis-generator:generate -->
-				<plugin>
-					<groupId>org.mybatis.generator</groupId>
-					<artifactId>mybatis-generator-maven-plugin</artifactId>
-					<version>1.3.5</version>
-	                <configuration>
-	                    <configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
-				        <overwrite>true</overwrite>
-				        <verbose>true</verbose>
-	                </configuration>
-	                <dependencies>
-	                    <dependency>
-	                        <groupId>mysql</groupId>
-	                        <artifactId>mysql-connector-java</artifactId>
-	                        <version>${mysql.version}</version>
-	                    </dependency>
-	                    <dependency>  
-	                        <groupId>org.mybatis</groupId>  
-	                        <artifactId>mybatis</artifactId>  
-	                        <version>${mybatis.version}</version>  
-	                    </dependency>  
-	                </dependencies>
-	                <!-- 使maven在代码编译步骤之前执行 mybatis代码自动生成,更新对应的.java 模型 与 .xml mapper -->
-		          	<!-- 
-		          	<executions>
-			            <execution>
-			              <id>Generate MyBatis Artifacts</id>
-			              <goals>
-			                <goal>generate</goal>
-			              </goals>
-			            </execution>
-		          </executions>
-		           -->
-				</plugin>
-			</plugins>
+		<!-- <resources> <resource> <filtering>true</filtering> <directory>${project.basedir}/src/main/resources</directory> <includes> <include>*.properties</include> </includes> </resource> </resources> -->
+		<plugins>
+			<!-- maven测试用例插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests><!-- 跳过测试用例 -->
+				</configuration>
+			</plugin>
+
+			<!-- maven编译源码插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.2</version>
+				<configuration>
+					<!-- 一般而言，target与source是保持一致的，但是，有时候为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中需要没有使用低版本jdk中不支持的语法)，会存在target不同于source的情况 -->
+					<source>${jdk.version}</source><!-- 源代码使用的开发版本 -->
+					<target>${jdk.version}</target><!-- 需要生成的目标class文件的编译版本 -->
+					<encoding>UTF-8</encoding>
+					<testIncludes>
+						<testInclude>none</testInclude>
+					</testIncludes>
+					<includes>
+						<include>**/*.*</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+			<!-- maven jetty服务器运行插件 -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.0.v20161208</version>
+				<configuration>
+					<httpConnector><!-- 链接配置 -->
+						<port>8080</port><!-- 默认8080端口 -->
+					</httpConnector>
+					<webApp>
+						<contextPath>/page-demo</contextPath>
+					</webApp>
+				</configuration>
+			</plugin>
+
+			<!-- maven mybatis generator 代码自动生成器插件 -->
+			<!-- 运行方法:1.加入到maven构建的一部分自动去执行,具体请打开下面的<executions>标签 2.可以在命令行通过以下命令执行: mvn mybatis-generator:generate -->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.5</version>
+				<configuration>
+					<configurationFile>${basedir}/src/main/resources/generatorConfig.xml</configurationFile>
+					<overwrite>true</overwrite>
+					<verbose>true</verbose>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.mybatis</groupId>
+						<artifactId>mybatis</artifactId>
+						<version>${mybatis.version}</version>
+					</dependency>
+				</dependencies>
+				<!-- 使maven在代码编译步骤之前执行 mybatis代码自动生成,更新对应的.java 模型 与 .xml mapper -->
+				<!-- <executions> <execution> <id>Generate MyBatis Artifacts</id> <goals> <goal>generate</goal> </goals> </execution> </executions> -->
+			</plugin>
+		</plugins>
 	</build>
 </project>
