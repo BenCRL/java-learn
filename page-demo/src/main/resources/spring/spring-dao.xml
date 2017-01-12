@@ -45,6 +45,6 @@
         <!--注入SqlSessionFactory-->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描的Dao接口-->
-        <property name="basePackage" value="com.learn.dao"/>
+        <property name="basePackage" value="com.learn.mapper"/>
     </bean>
 </beans>

@@ -314,7 +314,16 @@
 					</dependency>
 				</dependencies>
 				<!-- 使maven在代码编译步骤之前执行 mybatis代码自动生成,更新对应的.java 模型 与 .xml mapper -->
-				<!-- <executions> <execution> <id>Generate MyBatis Artifacts</id> <goals> <goal>generate</goal> </goals> </execution> </executions> -->
+				<!-- 
+					<executions>
+						<execution>
+							<id>Generate MyBatis Artifacts</id> 
+							<goals> 
+								<goal>generate</goal> 
+							</goals> 
+						</execution> 
+					</executions> 
+				-->
 			</plugin>
 		</plugins>
 	</build>
