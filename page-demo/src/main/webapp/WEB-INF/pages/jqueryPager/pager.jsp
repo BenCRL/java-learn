@@ -1,5 +1,5 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
-<%@include file="/WEB-INF/page/commons/taglibs.jsp"%>
+<%@include file="/WEB-INF/pages/commons/taglibs.jsp"%>
 <c:if test="${fn:length(pager.list) > 0}">
 	<div class="tableactions">
 		<label>每页显示:</label>

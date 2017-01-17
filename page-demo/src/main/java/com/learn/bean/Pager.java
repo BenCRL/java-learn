@@ -1,91 +1,95 @@
 package com.learn.bean;
+
 import java.util.List;
+
 /**
  * 分页相关信息
+ * 
  * @author Ben.
  *
  */
 public class Pager {
-    /**
-     * 排序方式
-     *
-     */
-    public enum OrderType {
-        asc, desc
-    }
-    /** 当前页码 */
-    private Integer   pageNumber = 1;
-    /** 每页记录数 */
-    private Integer   pageSize   = 10;
-    /** 总记录数 */
-    private Integer   totalCount = 0;
-    /** 总页数 */
-    private Integer   pageCount  = 0;
-    /** 排序字段 */
-    private String    orderBy;
-    /** 排序方式 */
-    private OrderType orderType  = OrderType.desc;
-    /** 数据List */
-    private List<?>   list;
+	/**
+	 * 排序方式
+	 *
+	 */
+	public enum OrderType {
+		asc, desc
+	}
 
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
+	/** 当前页码 */
+	private Integer pageNumber = 1;
+	/** 每页记录数 */
+	private Integer pageSize = 10;
+	/** 总记录数 */
+	private Integer totalCount = 0;
+	/** 总页数 */
+	private Integer pageCount = 0;
+	/** 排序字段 */
+	private String orderBy;
+	/** 排序方式 */
+	private OrderType orderType = OrderType.desc;
+	/** 数据List */
+	private List<?> list;
 
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-    }
+	public Integer getPageNumber() {
+		return pageNumber;
+	}
 
-    public Integer getPageSize() {
-        return pageSize;
-    }
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+	}
 
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
+	public Integer getPageSize() {
+		return pageSize;
+	}
 
-    public Integer getTotalCount() {
-        return totalCount;
-    }
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+	}
 
-    public void setTotalCount(Integer totalCount) {
-        this.totalCount = totalCount;
-    }
+	public Integer getTotalCount() {
+		return totalCount;
+	}
 
-    public Integer getPageCount() {
-        // 总页数 = (总记录数 / 每页记录数) 如果有余数,则加1
-        this.pageCount = this.totalCount / this.pageSize;
-        if (this.totalCount % this.pageSize > 0) {// 不能整除,则证明有余数,总页数再加一
-            this.pageCount++;
-        }
-        return pageCount;
-    }
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
 
-    public void setPageCount(Integer pageCount) {
-        this.pageCount = pageCount;
-    }
+	public Integer getPageCount() {
+		// 总页数 = (总记录数 / 每页记录数) 如果有余数,则加1
+		this.pageCount = this.totalCount / this.pageSize;
+		if (this.totalCount % this.pageSize > 0) {// 不能整除,则证明有余数,总页数再加一
+			this.pageCount++;
+		}
+		return pageCount;
+	}
 
-    public String getOrderBy() {
-        return orderBy;
-    }
+	public void setPageCount(Integer pageCount) {
+		this.pageCount = pageCount;
+	}
 
-    public void setOrderBy(String orderBy) {
-        this.orderBy = orderBy;
-    }
+	public String getOrderBy() {
+		return orderBy;
+	}
 
-    public OrderType getOrderType() {
-        return orderType;
-    }
+	public void setOrderBy(String orderBy) {
+		this.orderBy = orderBy;
+	}
 
-    public void setOrderType(OrderType orderType) {
-        this.orderType = orderType;
-    }
+	public OrderType getOrderType() {
+		return orderType;
+	}
 
-    public List<?> getList() {
-        return list;
-    }
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
+	}
 
-    public void setList(List<?> list) {
-        this.list = list;
-    }
+	public List<?> getList() {
+		return list;
+	}
+
+	public void setList(List<?> list) {
+		this.list = list;
+	}
 }

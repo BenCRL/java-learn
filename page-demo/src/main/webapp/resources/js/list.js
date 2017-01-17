@@ -50,8 +50,8 @@ $().ready( function() {
 	}
 	
 	// 页码跳转
-	$.gotoPage = function(id) {
-		$pageNumber.val(id);
+	$.gotoPage = function(pagerNumber) {
+		$pageNumber.val(pagerNumber);
 		$listForm.submit();
 	};
 	

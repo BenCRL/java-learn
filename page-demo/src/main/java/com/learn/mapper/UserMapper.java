@@ -1,6 +1,10 @@
 package com.learn.mapper;
 
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+import com.learn.bean.Pager;
 import com.learn.entity.User;
+import com.learn.form.UserForm;
 
 public interface UserMapper {
     /**
@@ -50,4 +54,8 @@ public interface UserMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(User record);
+
+    List<User> findList(@Param("userForm") UserForm userForm, @Param("pager") Pager pager);
+
+    Long findListTotalCount(@Param("userForm") UserForm userForm);
 }

@@ -12,4 +12,5 @@
 		因为在web.xml中DispatcherServlet已经配置了,此处不引入，防止重复加载 
 	 -->
 	<import resource="spring-dao.xml"/>
+	<import resource="spring-service.xml"/>
 </beans>

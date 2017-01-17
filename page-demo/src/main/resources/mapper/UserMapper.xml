@@ -113,4 +113,27 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <sql id="findListCondition">
+    <if test="userForm.userName != null and userForm.userName != ''">
+    	and user_name = #{userForm.userName,jdbcType=VARCHAR}
+   	</if>
+  </sql>
+  
+  <select id="findListTotalCount" resultType="java.lang.Long">
+    select 
+    count(*)
+    from user
+    where 1 =1
+    <include refid="findListCondition"></include>
+  </select>
+  
+  <select id="findList" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where 1 =1
+    <include refid="findListCondition"></include>
+    limit ${(pager.pageNumber - 1) * pager.pageSize},${pager.pageNumber * pager.pageSize}
+  </select>
 </mapper>
