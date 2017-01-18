@@ -9,7 +9,7 @@ import com.learn.bean.Pager;
 import com.learn.form.UserForm;
 import com.learn.service.UserSerivce;
 /**
- * twbs-Pagination.js实现分页效果
+ * twbs-Pagination.js实现ajax分页效果
  * 
  * @author Ben.
  *

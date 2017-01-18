@@ -25,14 +25,16 @@
 				   var $sort = $('#listForm .sort'); // 排序
 				   var $orderBy = $('#orderBy'); // 排序方式
 				   var $order = $('#order'); // 排序字段
-				   
 				   $('#pagination').twbsPagination({
-				        totalPages : '${pager.totalCount}',
-				        startPage : '${pager.pageNumber}',
+				        totalPages : '${pager.pageCount}',
+				        currentPage : '${pager.pageNumber}',
 				        first : '首页',
 				        prev : '上一页',
 				        next : '下一页',
 				        last :'末页',
+				        onInit: function () {
+				            console.info('111');
+				        },
 				        onPageClick : function(event,pagerNumber) {
 				            $pageNumber.val(pagerNumber);
 				            //$listForm.submit();
