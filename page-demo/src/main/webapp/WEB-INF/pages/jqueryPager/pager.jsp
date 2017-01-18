@@ -20,17 +20,17 @@
 	<c:when test="${fn:length(pager.list) > 0}">
 		<div class="pagerBar">
 			<script type="text/javascript">
-				$().ready(function() {
-					$("#pager").pager({
-						pagenumber : "${pager.pageNumber}",
-						pagecount : "${pager.pageCount}",
+				$(function() {
+					$('#pager').pager({
+						pagenumber : '${pager.pageNumber}',
+						pagecount : '${pager.pageCount}',
 						buttonClickCallback : $.gotoPage
 					});
 				});
 
 				function goToThePage() {
-					var toPagerNum = parseInt($("#toPagerNum").val());
-					var pageTotal = "${pager.pageCount}";
+					var toPagerNum = parseInt($('#toPagerNum').val());
+					var pageTotal = '${pager.pageCount}';
 					pageTotal = Number(pageTotal);
 					if (toPagerNum == '') {
 						alert('请输入指定页码.');

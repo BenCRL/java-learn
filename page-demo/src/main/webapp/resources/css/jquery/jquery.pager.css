@@ -18,7 +18,7 @@
 }
 
 #pager ul.pages li:hover {
-	border: 1px solid #003f7e;
+	border:1px solid #003f7e;
 }
 
 #pager ul.pages li.pgEmpty {

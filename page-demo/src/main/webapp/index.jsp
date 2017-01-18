@@ -19,10 +19,10 @@
 						<a href="${ctx}/jqueryPager/index">jquery.pager.js分页</a>
 					</td>
 					<td>
-						<a href="#">jquery.pager.js分页</a>
+						<a href="${ctx}/simplePagination/index">simplePagination.js分页</a>
 					</td>
 					<td>
-						<a href="#">jquery.pager.js分页</a>
+						<a href="${ctx}/twbsPagination/index">twbs-pagination(bootstrap风格)ajax分页</a>
 					</td>
 				</tr>
 			</table>

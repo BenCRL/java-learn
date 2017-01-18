@@ -4,22 +4,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>jquery.pager.js分页</title>
+<title>simplePagination.js分页</title>
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
-<!-- 引入jquery.pager.css -->
-<link href="${ctx}/resources/css/jquery/jquery.pager.css" rel="stylesheet" />
-<!-- 引入jquery.pager.js -->
-<script src="${ctx}/resources/js/jquery/jquery.pager.js" type="text/javascript"></script>
-<!-- 引入index.js 此为自定义的jquery.pager.js辅助类库 -->
-<script src="${ctx}/resources/js/jqueryPager/index.js" type="text/javascript"></script>
+<!-- 引入jquery.twbsPagination.js -->
+<script src="${ctx}/resources/js/jquery/jquery.twbsPagination.js" type="text/javascript"></script>
+<!-- 引入index.js 此为自定义的jquery.simplePagination.js辅助类库 -->
+<script src="${ctx}/resources/js/twbs-pagination/index.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h2>jquery.pager.js分页示例</h2>
+			<h2>twbsPagination.js分页示例</h2>
 			<a href="${ctx}/index.jsp">返回分页汇总</a>
 		</div>
-		<form id="listForm" role="form" action="${ctx}/jqueryPager/list" method="post">
+		<form id="listForm" role="form" action="${ctx}/twbsPagination/list" method="post">
 			<div class="form-group">
 				<label for="userName">User Name</label> 
 				<input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
@@ -44,7 +42,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<%@include file="/WEB-INF/pages/jqueryPager/pager.jsp"%>
+			<%@include file="/WEB-INF/pages/twbsPagination/pager.jsp"%>
 		</form>
 	</div>
 </body>
