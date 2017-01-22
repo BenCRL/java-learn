@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.learn.bean.Json;
 import com.learn.bean.Pager;
 import com.learn.form.UserForm;
 import com.learn.service.UserSerivce;
@@ -24,10 +26,19 @@ public class TwbsPaginationController {
     public String index(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
         return "twbsPagination/index";
     }
-
+    
+//    @RequestMapping(value = "/list", method = RequestMethod.POST)
+//    public String list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
+//        pager = this.userSerivce.findList(userForm, pager);
+//        return "twbsPagination/index";
+//    }
+    
+    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public String list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
+    public Json list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
+        Json json = new Json();
         pager = this.userSerivce.findList(userForm, pager);
-        return "twbsPagination/index";
+        json.setObj(pager);
+        return json;
     }
 }

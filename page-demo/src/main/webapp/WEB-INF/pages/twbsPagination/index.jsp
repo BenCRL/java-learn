@@ -24,7 +24,7 @@
 				<label for="userName">User Name</label> 
 				<input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button id="searchButton" type="button" class="btn btn-default">Submit</button>
 			<button type="reset" class="btn btn-default">Reset</button>
 			<table class="table table-striped">
 				<thead>
