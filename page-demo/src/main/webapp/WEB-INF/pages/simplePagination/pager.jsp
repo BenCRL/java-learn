@@ -61,7 +61,7 @@
 				|&nbsp;总数：${pager.totalCount}
 			</span>
 			<span id="pager"></span>
-			<div id="pager_gotopage" style="margin: 3px 40px 0 0; float: right; font-size: 12px;">
+			<div id="pager_gotopage" style="margin: 0 40px 0 0; float: right; font-size: 12px;">
 				输入页码：
 				<input type="text" id="toPagerNum" name="toPagerNum" value="${toPagerNum}" style="height: 18px; width: 35px; border: 1px solid #ccc;" />
 				<input type="button" name="goToPage" style="height: 29px; width: 30px; margin-top: 1px; border-radius: 5px;" value="GO" class="buttons" onclick="goToThePage();" />

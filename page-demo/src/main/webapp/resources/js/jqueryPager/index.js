@@ -9,6 +9,7 @@ $(function() {
 
     // 查找
     $searchButton.click(function() {
+    	// 设置默认值
         $pageNumber.val('1');
         $listForm.submit();
     });
@@ -21,7 +22,9 @@ $(function() {
 
     // 排序
     $sort.click(function() {
+    	// 当前排序字段
         var $currentOrderBy = $(this).attr('data-name');
+        // 判断当前排序方式
         if ($orderBy.val() == $currentOrderBy) {
             if ($order.val() == '') {
                 $order.val('asc');

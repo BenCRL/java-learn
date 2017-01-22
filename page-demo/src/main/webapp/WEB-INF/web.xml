@@ -49,4 +49,19 @@
 	<session-config>
 		<session-timeout>15</session-timeout>
 	</session-config>
+	
+		<!-- error page define -->
+	<error-page>
+		<error-code>400</error-code>
+		<location>/index</location>
+	</error-page>
+	<error-page>
+		<error-code>405</error-code>
+		<location>/index</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/index</location>
+	</error-page>
+	
 </web-app>

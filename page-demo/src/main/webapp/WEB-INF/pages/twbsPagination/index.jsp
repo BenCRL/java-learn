@@ -4,11 +4,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>simplePagination.js分页</title>
+<title>twbsPagination.js分页</title>
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
+<!-- 引入twbsPagination.css -->
+<link href="${ctx}/resources/css/jquery/twbsPagination.css" rel="stylesheet" />
 <!-- 引入jquery.twbsPagination.js -->
 <script src="${ctx}/resources/js/jquery/jquery.twbsPagination.js" type="text/javascript"></script>
-<!-- 引入index.js 此为自定义的jquery.simplePagination.js辅助类库 -->
+<!-- 引入index.js 此为自定义的jquery.twbsPagination.js辅助类库 -->
 <script src="${ctx}/resources/js/twbs-pagination/index.js" type="text/javascript"></script>
 </head>
 <body>

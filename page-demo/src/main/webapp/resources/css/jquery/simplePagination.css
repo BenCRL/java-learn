@@ -216,3 +216,7 @@ span.ellipse.clickable {
 	padding-right: 7px;
 	padding-left: 10px;
 }
+
+.sort {
+	cursor: pointer;
+}

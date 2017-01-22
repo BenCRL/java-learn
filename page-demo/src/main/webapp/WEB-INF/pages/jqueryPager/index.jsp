@@ -28,10 +28,10 @@
 			<button type="reset" class="btn btn-default">Reset</button>
 			<table class="table table-striped">
 				<thead>
-					<th>id</th>
-					<th>user name</th>
-					<th>phone</th>
-					<th>create time</th>
+					<th data-name="id">id</th>
+					<th data-name="username">user name</th>
+					<th class="sort" data-name="phone">phone</th>
+					<th class="sort" data-name="create_time">create time</th>
 				</thead>
 				<tbody>
 					<c:forEach var="user" items="${pager.list}">

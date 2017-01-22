@@ -134,6 +134,10 @@
     from user
     where 1 =1
     <include refid="findListCondition"></include>
+    <if test="pager.orderBy != null and pager.orderBy != ''">
+    	order by ${pager.orderBy} ${pager.orderType}
+   	</if>
+    <!-- 在此处计算分页offset和rows,所以需要使用$符号引用,$符号是使用直接拼接字符串的方式的,无法使用#符号预编译模式,如果担心不安全,可以在方法内计算offset和rows,直接传入offset和rows即可 -->
     limit ${(pager.pageNumber - 1) * pager.pageSize},${pager.pageNumber * pager.pageSize}
   </select>
 </mapper>
