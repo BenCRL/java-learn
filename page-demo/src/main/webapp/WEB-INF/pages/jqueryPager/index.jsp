@@ -7,7 +7,7 @@
 <title>jquery.pager.js分页</title>
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
 <!-- 引入jquery.pager.css -->
-<link href="${ctx}/resources/css/jquery/jquery.pager.css" rel="stylesheet" />
+<link href="${ctx}/resources/css/jquery/jquery.pager.css" rel="stylesheet" />	
 <!-- 引入jquery.pager.js -->
 <script src="${ctx}/resources/js/jquery/jquery.pager.js" type="text/javascript"></script>
 <!-- 引入index.js 此为自定义的jquery.pager.js辅助类库 -->

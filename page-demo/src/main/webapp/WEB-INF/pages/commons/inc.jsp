@@ -9,7 +9,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- 引入bootstrap css -->
 <link href="${ctx}/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-
 <!-- 引入jQuery -->
 <script src="${ctx}/resources/js/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
 <!-- 引入Bootstrap -->

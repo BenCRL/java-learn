@@ -22,7 +22,7 @@
 						<a href="${ctx}/simplePagination/index">simplePagination.js分页</a>
 					</td>
 					<td>
-						<a href="${ctx}/twbsPagination/index">twbs-pagination(bootstrap风格)ajax分页</a>
+						<a href="${ctx}/bootstrap-paginator/index">bootstrap-paginator(ajax分页)</a>
 					</td>
 				</tr>
 			</table>

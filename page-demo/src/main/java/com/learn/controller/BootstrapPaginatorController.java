@@ -5,40 +5,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import com.learn.bean.Json;
 import com.learn.bean.Pager;
 import com.learn.form.UserForm;
 import com.learn.service.UserSerivce;
 /**
- * twbs-Pagination.js实现ajax分页效果
+ * bootstrap-paginator.js实现ajax分页效果
  * 
  * @author Ben.
  *
  */
 @Controller
-@RequestMapping("/twbsPagination")
-public class TwbsPaginationController {
+@RequestMapping("/bootstrap-paginator")
+public class BootstrapPaginatorController {
     @Resource
     private UserSerivce userSerivce;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
-        return "twbsPagination/index";
+        return "bootstrap-paginator/index";
     }
     
-//    @RequestMapping(value = "/list", method = RequestMethod.POST)
-//    public String list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
-//        pager = this.userSerivce.findList(userForm, pager);
-//        return "twbsPagination/index";
-//    }
-    
-    @ResponseBody
     @RequestMapping(value = "/list", method = RequestMethod.POST)
-    public Json list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
-        Json json = new Json();
+    public String list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
         pager = this.userSerivce.findList(userForm, pager);
-        json.setObj(pager);
-        return json;
+        return "bootstrap-paginator/index";
     }
+    
 }

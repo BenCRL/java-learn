@@ -4,22 +4,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>twbsPagination.js分页</title>
+<title>bootstrap-paginator.js分页</title>
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
-<!-- 引入twbsPagination.css -->
-<link href="${ctx}/resources/css/jquery/twbsPagination.css" rel="stylesheet" />
-<!-- 引入jquery.twbsPagination.js -->
-<script src="${ctx}/resources/js/jquery/jquery.twbsPagination.js" type="text/javascript"></script>
-<!-- 引入index.js 此为自定义的jquery.twbsPagination.js辅助类库 -->
-<script src="${ctx}/resources/js/twbs-pagination/index.js" type="text/javascript"></script>
+<!-- 引入bootstrap-paginator.css(不是官方css,是自定义样式) -->
+<link href="${ctx}/resources/css/jquery/bootstrap-paginator.css" rel="stylesheet" />
+<!-- 引入bootstrap-paginator.js -->
+<script src="${ctx}/resources/js/jquery/bootstrap-paginator.js" type="text/javascript"></script>
+<!-- 引入index.js 此为自定义的bootstrap-paginator.js辅助类库 -->
+<script src="${ctx}/resources/js/bootstrap-paginator/index.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
 		<div class="page-header">
-			<h2>twbsPagination.js分页示例</h2>
+			<h2>bootstrap-paginator.js分页示例</h2>
 			<a href="${ctx}/index.jsp">返回分页汇总</a>
 		</div>
-		<form id="listForm" role="form" action="${ctx}/twbsPagination/list" method="post">
+		<form id="listForm" role="form" action="${ctx}/bootstrap-paginator/list" method="post">
 			<div class="form-group">
 				<label for="userName">User Name</label> 
 				<input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
@@ -44,7 +44,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<%@include file="/WEB-INF/pages/twbsPagination/pager.jsp"%>
+			<%@include file="/WEB-INF/pages/bootstrap-paginator/pager.jsp"%>
 		</form>
 	</div>
 </body>
