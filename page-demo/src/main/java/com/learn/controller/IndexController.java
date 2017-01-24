@@ -12,11 +12,13 @@ import com.learn.service.UserSerivce;
  *
  */
 @Controller
+@RequestMapping("/")
 public class IndexController {
     @Resource
     private UserSerivce userSerivce;
 
+    @RequestMapping("/index")
     public String index(HttpServletResponse response) throws IOException {
-        return "redirect:index.jsp";
+        return "redirect:/index.jsp";
     }
 }

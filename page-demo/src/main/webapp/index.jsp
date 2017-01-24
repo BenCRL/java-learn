@@ -13,16 +13,16 @@
 			<table class="table table-bordered">
 				<tr>
 					<td>
-						<a href="#">原生分页</a>
-					</td>
-					<td>
 						<a href="${ctx}/jqueryPager/index">jquery.pager.js分页</a>
 					</td>
 					<td>
 						<a href="${ctx}/simplePagination/index">simplePagination.js分页</a>
 					</td>
 					<td>
-						<a href="${ctx}/bootstrap-paginator/index">bootstrap-paginator(ajax分页)</a>
+						<a href="${ctx}/bootstrap-paginator/index">bootstrap-paginator</a>
+					</td>					
+					<td>
+						<a href="#">bootstrap table</a>
 					</td>
 				</tr>
 			</table>
