@@ -1,6 +1,7 @@
 package com.learn.service.impl;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
+import com.learn.bean.BootstrapTable;
 import com.learn.bean.Pager;
 import com.learn.form.UserForm;
 import com.learn.mapper.UserMapper;
@@ -16,5 +17,14 @@ public class UserServiceImpl implements UserSerivce {
         Long totalCount = this.userMapper.findListTotalCount(userForm);
         pager.setTotalCount(totalCount == null ? 0 : totalCount.intValue());
         return pager;
+    }
+
+    @Override
+    public BootstrapTable bootstrapTable(UserForm userForm, Pager pager) {
+        BootstrapTable bootstrapTable = new BootstrapTable();
+        bootstrapTable.setRows(this.userMapper.findList(userForm, pager));
+        Long totalCount = this.userMapper.findListTotalCount(userForm);
+        bootstrapTable.setTotal(totalCount == null ? 0 : totalCount.longValue());
+        return bootstrapTable;
     }
 }

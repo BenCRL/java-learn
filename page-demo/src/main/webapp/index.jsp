@@ -22,7 +22,7 @@
 						<a href="${ctx}/bootstrap-paginator/index">bootstrap-paginator</a>
 					</td>					
 					<td>
-						<a href="#">bootstrap table</a>
+						<a href="${ctx}/bootstrapTable/index">bootstrap table</a>
 					</td>
 				</tr>
 			</table>
