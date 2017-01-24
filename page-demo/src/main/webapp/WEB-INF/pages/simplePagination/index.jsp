@@ -8,6 +8,10 @@
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
 <!-- 引入simplePagination.css -->
 <link href="${ctx}/resources/css/jquery/simplePagination.css" rel="stylesheet" />
+<!-- 引入jQuery -->
+<script src="${ctx}/resources/js/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<!-- 引入Bootstrap -->
+<script src="${ctx}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- 引入jquery.simplePagination.js -->
 <script src="${ctx}/resources/js/jquery/jquery.simplePagination.js" type="text/javascript"></script>
 <!-- 引入index.js 此为自定义的jquery.simplePagination.js辅助类库 -->

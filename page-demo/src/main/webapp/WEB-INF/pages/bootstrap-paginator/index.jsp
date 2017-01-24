@@ -8,10 +8,6 @@
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
 <!-- 引入bootstrap-paginator.css(不是官方css,是自定义样式) -->
 <link href="${ctx}/resources/css/jquery/bootstrap-paginator.css" rel="stylesheet" />
-<!-- 引入bootstrap-paginator.js -->
-<script src="${ctx}/resources/js/jquery/bootstrap-paginator.js" type="text/javascript"></script>
-<!-- 引入index.js 此为自定义的bootstrap-paginator.js辅助类库 -->
-<script src="${ctx}/resources/js/bootstrap-paginator/index.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
@@ -28,10 +24,10 @@
 			<button type="reset" class="btn btn-default">Reset</button>
 			<table class="table table-striped">
 				<thead>
-					<th>id</th>
-					<th>user name</th>
-					<th>phone</th>
-					<th>create time</th>
+					<th data-name="id">id</th>
+					<th data-name="username">user name</th>
+					<th class="sort" data-name="phone">phone</th>
+					<th class="sort" data-name="create_time">create time</th>
 				</thead>
 				<tbody>
 					<c:forEach var="user" items="${pager.list}">
@@ -47,5 +43,19 @@
 			<%@include file="/WEB-INF/pages/bootstrap-paginator/pager.jsp"%>
 		</form>
 	</div>
+	<!-- 引入jQuery -->
+	<script src="${ctx}/resources/js/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+	<!-- 引入Bootstrap -->
+	<script src="${ctx}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- 引入bootstrap-paginator.js -->
+	<script src="${ctx}/resources/js/jquery/bootstrap-paginator.js" type="text/javascript"></script>
+	<!-- 引入index.js 此为自定义的bootstrap-paginator.js辅助类库 -->
+	<script src="${ctx}/resources/js/bootstrap-paginator/index.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 初始化分页控件
+			pager.init('${pager.pageCount}','${pager.pageNumber}');
+		});
+	</script>
 </body>
 </html>

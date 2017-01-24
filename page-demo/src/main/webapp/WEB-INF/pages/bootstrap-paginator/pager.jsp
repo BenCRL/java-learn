@@ -33,7 +33,7 @@
 				<div id="pager_gotopage" style="margin: 3px 40px 0 0; float: right; font-size: 12px;">
 					输入页码：
 					<input type="text" id="toPagerNum" name="toPagerNum" value="${toPagerNum}" style="height: 18px; width: 35px; border: 1px solid #ccc;" />
-					<input type="button" name="goToPage" style="height: 29px; width: 30px; margin-top: 1px; border-radius: 5px;" value="GO" class="buttons" onclick="goToThePage();" />
+					<input type="button" name="goToPage" style="height: 29px; width: 30px; margin-top: 1px; border-radius: 5px;" value="GO" class="buttons" onclick="goToThePage('${pager.pageCount}');" />
 				</div>
 				<input type="hidden" name="pageNumber" id="pageNumber" value="${pager.pageNumber}" />
 				<input type="hidden" name="orderBy" id="orderBy" value="${pager.orderBy}" />
@@ -43,107 +43,3 @@
 	</c:when>
 </c:choose>
 
-<script>
-$(function() {
-	var $listForm = $('#listForm'); // 列表表单
-	var $searchButton = $('#searchButton'); // 查询按钮
-	var $pageNumber = $('#pageNumber'); // 当前页码
-	var $pageSize = $('#pageSize'); // 每页显示数
-	var $sort = $('#listForm .sort'); // 排序
-	var $orderBy = $('#orderBy'); // 排序方式
-	var $order = $('#order'); // 排序字段
-	
-    //初始化bootstrapPaginator分页控件
-	$('#pagination').bootstrapPaginator({
-		bootstrapMajorVersion : 3,
-		totalPages : '${pager.pageCount}',
-		currentPage :'${pager.pageNumber}',
-	    itemTexts: function (type, page, current) {
-	        switch (type) {
-	        case 'first':
-	            return '首页';
-	        case 'prev':
-	            return '上一页';
-	        case 'next':
-	            return '下一页';
-	        case 'last':
-	            return '末页';
-	        case 'page':
-	            return page;
-	        }
-	    },
-		onPageClicked : function(event, originalEvent, type, page) {
-			$pageNumber.val(page);
-			$listForm.submit();
-		}
-	});
-
-    // 绑定查询按钮点击事件
-	$searchButton.click(function() {
-    	// 设置默认值
-        $pageNumber.val('1');
-        $listForm.submit();
-	});
-
-    // 每页显示数
-    $pageSize.change(function() {
-    	// 设置默认值
-        $pageNumber.val("1");
-        $listForm.submit();
-    });
-
-    // 排序
-    $sort.click(function() {
-    	// 当前排序字段
-        var $currentOrderBy = $(this).attr('data-name');
-        // 判断当前排序方式
-        if ($orderBy.val() == $currentOrderBy) {
-            if ($order.val() == '') {
-                $order.val('asc');
-            } else if ($order.val() == 'desc') {
-                $order.val('asc');
-            } else if ($order.val() == 'asc') {
-                $order.val('desc');
-            }
-        } else {
-            $orderBy.val($currentOrderBy);
-            $order.val('asc');
-        }
-        $pageNumber.val('1');
-        $listForm.submit();
-    });
-
-    function sortStyle() {
-        var orderByValue = $orderBy.val();
-        var orderValue = $order.val();
-        if (orderByValue != '' && orderValue != '') {
-            //$(".sort[name='" + orderByValue + "']").after('<span class="' + orderValue + 'Sort">&nbsp;</span>');
-        }
-    }
-    
-    // 排序图标效果
-    sortStyle();
-});
-
-//跳转至指定页面
-function goToThePage() {
-	var toPagerNum = parseInt($('#toPagerNum').val());
-	var pageTotal = '${pager.pageCount}';
-	pageTotal = Number(pageTotal);
-	if (toPagerNum == '') {
-		alert('请输入指定页码.');
-		return;
-	}
-	if (toPagerNum > pageTotal || toPagerNum < 1) {
-		alert('输入的页码无效.');
-		return;
-	}
-	if (isNaN(toPagerNum)) {
-		alert('输入页码必须为数字.');
-		return;
-	}
-
-	document.all['pageNumber'].value = toPagerNum;
-	// document.forms[0].submit();
-}
-</script>
