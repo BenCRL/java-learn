@@ -22,15 +22,15 @@ public class BootstrapTableController {
     @Resource
     private UserSerivce userSerivce;
 
-    @ResponseBody
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public BootstrapTable index(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
-        return this.userSerivce.bootstrapTable(userForm, pager);
+    public String index(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
+        return "bootstrapTable/index";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list")
     public BootstrapTable list(UserForm userForm, Pager pager, ModelMap modelMap, HttpServletRequest request) {
-        return this.userSerivce.bootstrapTable(userForm, pager);
+        BootstrapTable bootstrapTable = this.userSerivce.bootstrapTable(userForm, pager);
+        return bootstrapTable;
     }
 }

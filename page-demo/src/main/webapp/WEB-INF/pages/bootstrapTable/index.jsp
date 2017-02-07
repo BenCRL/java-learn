@@ -30,13 +30,74 @@
 				<label for="userName">User Name</label> 
 				<input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
 			</div>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button id="searchBtn" type="button" class="btn btn-default">Submit</button>
 			<button type="reset" class="btn btn-default">Reset</button>
 			<table id="table">
 			</table>
 		</form>
 	</div>
+	<script type="text/javascript">
+	var pager = {
+		$table : $('#table'),//boostrap table
+		$listForm : $('#listForm'),// search from
+		toolbar : {
+			$searchBtn : $('#searchBtn'),//search button
+		},
+		init : function() {
+			// 初始化boostrap table
+			this.tableInit();
+			// 初始化查询功能
+			this.searchQueryInit();
+		},
+		tableInit : function () {
+			var _this = this;
+			this.$table.bootstrapTable({
+				url : ctx + '/bootstrapTable/list',//服务器数据的加载地址
+				classes : 'table table-striped table-no-bordered',
+				method : 'post',
+				idField : 'id',//指定主键列
+				contentType : 'application/x-www-form-urlencoded',//发送到服务器的数据编码类型,默认为'application/json',为了方便使用，使用表单格式提交
+				queryParamsType : 'undefined',//设置为 'limit' 则会发送符合 RESTFul 格式的参数.limit,offset,如果是其他,则为pageSize,pageNumber
+				queryParams : function(params) {//传递参数
+					var queryParams = util.serializeObject(_this.$listForm);
+					return $.extend(queryParams,params);
+				},
+				columns : [ {
+					field : 'id',
+					title : 'id'
+				}, {
+					field : 'userName',
+					title : 'user name'
+				}, {
+					field : 'phone',
+					title : 'phone'
+				}, {
+					field : 'createTime',
+					title : 'create time'
+				} ],
+				cache : false,
+				pagination : true,//设置为 true 会在表格底部显示分页条
+				sidePagination : 'server',//设置在哪里进行分页，可选值为 'client' 或者 'server'。设置 'server'时，必须设置 服务器数据地址（url）或者重写ajax方法
+				pageSize : 10,//如果设置了分页，页面数据条数
+				pageList: [10, 25, 50, 100],//可供选择的每页的行数
+				onLoadSuccess : function(data){
+					
+				}
+			});
+		},
+		searchQueryInit : function() {
+			var _this = this;
+			this.toolbar.$searchBtn.click(function () {
+				_this.$table.bootstrapTable('selectPage',1);
+				_this.$table.bootstrapTable('refresh');
+			});
+		}
+	};
+	
+	$(function() {
+		//页面初始化
+		pager.init();
+	});
+	</script>
 </body>
-<script type="text/javascript">
-</script>
 </html>
