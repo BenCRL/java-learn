@@ -43,6 +43,7 @@
 		toolbar : {
 			$searchBtn : $('#searchBtn'),//search button
 		},
+		isFisrtLoad : true,//标识是否首次打开页面,如果是,则不加载数据
 		init : function() {
 			// 初始化boostrap table
 			this.tableInit();
@@ -81,7 +82,13 @@
 				pageSize : 10,//如果设置了分页，页面数据条数
 				pageList: [10, 25, 50, 100],//可供选择的每页的行数
 				onLoadSuccess : function(data){
-					
+					// not a good way to do that
+					/*
+					if(_this.isFisrtLoad) {
+						_this.$table.bootstrapTable('load',{total:0,rows:{}});
+						_this.isFisrtLoad = false;
+					}
+					*/
 				}
 			});
 		},
