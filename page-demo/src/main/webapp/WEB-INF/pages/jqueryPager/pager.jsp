@@ -33,7 +33,7 @@
 			<div id="pager_gotopage" style="margin-top: 3px; float: right; font-size: 12px;">
 				输入页码：
 				<input type="text" id="toPagerNum" name="toPagerNum" value="${toPagerNum}" style="height: 18px; width: 35px; border: 1px solid #ccc;" />
-				<input type="button" name="goToPage" style="height: 29px; width: 30px; margin-top: 1px; border-radius: 5px;" value="GO" class="buttons" onclick="goToThePage('${pager.pageCount}');" />
+				<input type="button" id="goToPageButton" name="goToPage" style="height: 29px; width: 30px; margin-top: 1px; border-radius: 5px;" value="GO" class="buttons" onclick="goToThePage('${pager.pageCount}');" />
 			</div>
 			<!-- modify
 			<input type="hidden" name="pager.pageNumber" id="pageNumber" value="${pager.pageNumber}" />

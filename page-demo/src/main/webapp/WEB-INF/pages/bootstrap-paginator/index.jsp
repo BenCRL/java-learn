@@ -52,10 +52,10 @@
 	<!-- 引入index.js 此为自定义的bootstrap-paginator.js辅助类库 -->
 	<script src="${ctx}/resources/js/bootstrap-paginator/index.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		$(function() {
-			// 初始化分页控件
-			pager.init('${pager.pageCount}','${pager.pageNumber}');
-		});
-	</script>
+	$(function() {
+		// 初始化分页控件
+		pager.init('${pager.pageCount}','${pager.pageNumber}');
+	});
+</script>
 </body>
 </html>

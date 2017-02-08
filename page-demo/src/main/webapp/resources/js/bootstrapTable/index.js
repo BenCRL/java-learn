@@ -7,11 +7,11 @@ var pager = {
 		isFisrtLoad : true,//标识是否首次打开页面,如果是,则不加载数据
 		init : function() {
 			// 初始化boostrap table
-			this.tableInit();
+			this.initTable();
 			// 初始化查询功能
-			this.searchQueryInit();
+			this.initSearchQuery();
 		},
-		tableInit : function () {
+		initTable : function () {
 			var _this = this;
 			this.$table.bootstrapTable({
 				url : ctx + '/bootstrapTable/list',//服务器数据的加载地址
@@ -53,7 +53,7 @@ var pager = {
 				}
 			});
 		},
-		searchQueryInit : function() {
+		initSearchQuery : function() {
 			var _this = this;
 			this.toolbar.$searchBtn.click(function () {
 				_this.$table.bootstrapTable('selectPage',1);
