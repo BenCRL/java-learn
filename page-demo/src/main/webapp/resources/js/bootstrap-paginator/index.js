@@ -1,5 +1,6 @@
 
 var pager = {
+	$pagination : $('#pagination'),//分页控件
 	$listForm : $('#listForm'), // 列表表单
 	$searchButton : $('#searchButton'), // 查询按钮
 	$pageNumber : $('#pageNumber'), // 当前页码
@@ -26,7 +27,7 @@ var pager = {
 	initTable : function(totalPages,currentPage) {//table初始化
 		var _this = this;
 	    //初始化bootstrapPaginator分页控件
-		$('#pagination').bootstrapPaginator({
+		this.$pagination.bootstrapPaginator({
 			bootstrapMajorVersion : 3,
 			totalPages : totalPages,
 			currentPage :currentPage,
