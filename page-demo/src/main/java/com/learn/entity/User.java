@@ -1,6 +1,7 @@
 package com.learn.entity;
 
 import java.util.Date;
+import com.alibaba.fastjson.annotation.JSONField;
 
 public class User {
     /**
@@ -37,6 +38,7 @@ public class User {
      *
      * @mbg.generated
      */
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**

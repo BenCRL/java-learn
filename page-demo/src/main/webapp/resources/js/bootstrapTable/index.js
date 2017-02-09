@@ -21,8 +21,15 @@ var pager = {
 				contentType : 'application/x-www-form-urlencoded',//发送到服务器的数据编码类型,默认为'application/json',为了方便使用，使用表单格式提交
 				queryParamsType : 'undefined',//设置为 'limit' 则会发送符合 RESTFul 格式的参数.limit,offset,如果是其他,则为pageSize,pageNumber
 				queryParams : function(params) {//传递参数
+					//native params : pageSize, pageNumber, searchText, sortName, sortOrder. 
 					var queryParams = util.serializeObject(that.$listForm);
-					return $.extend(queryParams,params);
+					var pageParams = {
+						pageSize : params.pageSize,
+						pageNumber : params.pageNumber ,
+						orderBy : params.sortName,
+						orderType : params.sortOrder
+					};
+					return $.extend(queryParams,pageParams);
 				},
 				columns : [ {
 					field : 'id',
@@ -32,7 +39,8 @@ var pager = {
 					title : 'user name'
 				}, {
 					field : 'phone',
-					title : 'phone'
+					title : 'phone',
+					sortable : true
 				}, {
 					field : 'createTime',
 					title : 'create time'
