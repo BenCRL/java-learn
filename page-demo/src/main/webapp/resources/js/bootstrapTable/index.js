@@ -12,7 +12,7 @@ var pager = {
 			this.initSearchQuery();
 		},
 		initTable : function () {
-			var _this = this;
+			var that = this;
 			this.$table.bootstrapTable({
 				url : ctx + '/bootstrapTable/list',//服务器数据的加载地址
 				classes : 'table table-striped table-no-bordered',
@@ -21,7 +21,7 @@ var pager = {
 				contentType : 'application/x-www-form-urlencoded',//发送到服务器的数据编码类型,默认为'application/json',为了方便使用，使用表单格式提交
 				queryParamsType : 'undefined',//设置为 'limit' 则会发送符合 RESTFul 格式的参数.limit,offset,如果是其他,则为pageSize,pageNumber
 				queryParams : function(params) {//传递参数
-					var queryParams = util.serializeObject(_this.$listForm);
+					var queryParams = util.serializeObject(that.$listForm);
 					return $.extend(queryParams,params);
 				},
 				columns : [ {
@@ -45,19 +45,19 @@ var pager = {
 				onLoadSuccess : function(data){
 					// not a good way to do that
 					/*
-					if(_this.isFisrtLoad) {
-						_this.$table.bootstrapTable('load',{total:0,rows:{}});
-						_this.isFisrtLoad = false;
+					if(that.isFisrtLoad) {
+						that.$table.bootstrapTable('load',{total:0,rows:{}});
+						that.isFisrtLoad = false;
 					}
 					*/
 				}
 			});
 		},
 		initSearchQuery : function() {
-			var _this = this;
+			var that = this;
 			this.toolbar.$searchBtn.click(function () {
-				_this.$table.bootstrapTable('selectPage',1);
-				_this.$table.bootstrapTable('refresh');
+				that.$table.bootstrapTable('selectPage',1);
+				that.$table.bootstrapTable('refresh');
 			});
 		}
 };

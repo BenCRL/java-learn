@@ -70,7 +70,7 @@ var pager = {
 			this.initGoToThePage(totalPages);
 		},
 		initTable : function(totalCount,pageSize,currentPage) {//table初始化
-			var _this = this;
+			var that = this;
 		    //初始化simplePagination分页控件
 		    this.$pagination.pagination({
 		        items: totalCount,//用来计算页数的项目总数
@@ -80,62 +80,62 @@ var pager = {
 		        prevText:'上一页',
 		        nextText:'下一页',
 		        onPageClick : function(pagerNumber,event) {
-		        	_this.$pageNumber.val(pagerNumber);
-		        	_this.$listForm.submit();
+		        	that.$pageNumber.val(pagerNumber);
+		        	that.$listForm.submit();
 			    }
 		    });
 		},
 		initSearchQuery : function() {//查询功能初始化
-			var _this = this;
+			var that = this;
 		    // 绑定查询按钮点击事件
 			this.$searchButton.click(function() {
 		    	// 设置默认值
-				_this.$pageNumber.val('1');
-		        _this.$listForm.submit();
+				that.$pageNumber.val('1');
+		        that.$listForm.submit();
 			});
 		},
 		initPageChange : function() {//切换页面显示条数功能初始化
-			var _this = this;
+			var that = this;
 		    this.$pageSize.change(function() {
 		    	// 设置默认值
-		    	_this.$pageNumber.val('1');
-		        _this.$listForm.submit();
+		    	that.$pageNumber.val('1');
+		        that.$listForm.submit();
 		    });
 		},
 		initSort : function() {//字段排序功能初始化
-			var _this = this;
+			var that = this;
 		    this.$sort.click(function() {
 		    	// 当前排序字段
 		        var currentOrderBy = $(this).attr('data-name');
 		        // 判断当前排序方式
-		        if (_this.$orderBy.val() == currentOrderBy) {
-		            if (_this.$order.val() == '') {
-		            	_this.$order.val('asc');
-		            } else if (_this.$order.val() == 'desc') {
-		            	_this.$order.val('asc');
-		            } else if (_this.$order.val() == 'asc') {
-		            	_this.$order.val('desc');
+		        if (that.$orderBy.val() == currentOrderBy) {
+		            if (that.$order.val() == '') {
+		            	that.$order.val('asc');
+		            } else if (that.$order.val() == 'desc') {
+		            	that.$order.val('asc');
+		            } else if (that.$order.val() == 'asc') {
+		            	that.$order.val('desc');
 		            }
 		        } else {
-		        	_this.$orderBy.val(currentOrderBy);
-		        	_this.$order.val('asc');
+		        	that.$orderBy.val(currentOrderBy);
+		        	that.$order.val('asc');
 		        }
-		        _this.$pageNumber.val('1');
-		        _this.$listForm.submit();
+		        that.$pageNumber.val('1');
+		        that.$listForm.submit();
 		    });
 		},
 		initSortStyle : function() {// 排序图标效果初始化
-			var _this = this;
-	        var orderByValue = _this.$orderBy.val();
-	        var orderValue = _this.$order.val();
+			var that = this;
+	        var orderByValue = that.$orderBy.val();
+	        var orderValue = that.$order.val();
 	        if (orderByValue != '' && orderValue != '') {
 	            //$(".sort[name='" + orderByValue + "']").after('<span class="' + orderValue + 'Sort">&nbsp;</span>');
 	        }
 		},
 		initGoToThePage : function(pageCount) {//跳转至指定页面
-			var _this = this;
+			var that = this;
 			this.$goToPageButton.click(function() {
-				var toPagerNum = parseInt(_this.$toPagerNum.val());
+				var toPagerNum = parseInt(that.$toPagerNum.val());
 				var pageTotal = Number(pageCount);
 				if (toPagerNum == '') {
 					alert('请输入指定页码.');
@@ -149,8 +149,8 @@ var pager = {
 					alert('输入页码必须为数字.');
 					return;
 				}
-				_this.$pageNumber.val(toPagerNum);
-				_this.$listForm.submit();
+				that.$pageNumber.val(toPagerNum);
+				that.$listForm.submit();
 			});
 		}
 	};
