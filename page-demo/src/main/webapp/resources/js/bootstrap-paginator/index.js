@@ -13,8 +13,8 @@
 		this.$goToPageButton = $('#goToPageButton');// 跳转至指定页按钮
 		this.init(totalPages, currentPage);
 	};
-	
 	Pager.prototype = {
+		constructor : Pager,
 		init : function(totalPages, currentPage) {
 			// 初始化table
 			this.initTable(totalPages, currentPage);
