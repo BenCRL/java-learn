@@ -80,7 +80,7 @@
                 var currentOrderBy = $(this).attr('data-name');
                 // 判断当前排序方式
                 if (that.$orderBy.val() == currentOrderBy) {
-                    if (that.$order.val() == '') {
+                    if (that.$order.val() === '') {
                         that.$order.val('asc');
                     } else if (that.$order.val() == 'desc') {
                         that.$order.val('asc');
@@ -99,7 +99,7 @@
             var that = this;
             var orderByValue = that.$orderBy.val();
             var orderValue = that.$order.val();
-            if (orderByValue != '' && orderValue != '') {
+            if (orderByValue !== '' && orderValue !== '') {
                 // $(".sort[name='" + orderByValue + "']").after('<span class="' +
                 // orderValue + 'Sort">&nbsp;</span>');
             }
@@ -109,7 +109,7 @@
             this.$goToPageButton.click(function() {
                 var toPagerNum = parseInt(that.$toPagerNum.val());
                 var pageTotal = Number(pageCount);
-                if (toPagerNum == '') {
+                if (toPagerNum === '') {
                     alert('请输入指定页码.');
                     return;
                 }
