@@ -1,6 +1,6 @@
 (function($, window, document, undefined) {
     // Pager CLASS DEFINITION END
-    var Pager = function(totalCount,pageSize,totalPages,currentPage) {
+    var Pager = function(options) {
         this.$pagination = $('#pager'); // 分页控件
         this.$listForm = $('#listForm'); // 列表表单
         this.$searchButton = $('#searchButton'); // 查询按钮
@@ -11,13 +11,21 @@
         this.$order = $('#order'); // 排序字段
         this.$toPagerNum = $('#toPagerNum'); // 跳转至指定页
         this.$goToPageButton = $('#goToPageButton'); // 跳转至指定页按钮
-        this.init(totalCount,pageSize,totalPages,currentPage);
+        //初始化参数
+        this.options = $.extend({
+            totalCount: 1,
+            pageSize: 1,
+            totalPages: 1,
+            currentPage: 1
+        }, options || {});
+        //初始化分页控件
+        this.init();
     };
     Pager.prototype = {
         constructor: Pager,
-        init: function(totalCount,pageSize,totalPages,currentPage) {
+        init: function() {
             // 初始化table
-            this.initTable(totalCount,pageSize,currentPage);
+            this.initTable(this.options.totalCount, this.options.pageSize, this.options.currentPage);
             // 初始化查询功能
             this.initSearchQuery();
             // 初始化切换页面显示条数功能
@@ -27,19 +35,19 @@
             // 初始化排序图标效果
             this.initSortStyle();
             // 初始化跳转至指定页面功能
-            this.initGoToThePage(totalPages);
+            this.initGoToThePage(this.options.totalPages);
         },
-        initTable: function(totalCount,pageSize,currentPage) {//table初始化
+        initTable: function(totalCount, pageSize, currentPage) { //table初始化
             var that = this;
             //初始化simplePagination分页控件
             this.$pagination.pagination({
-                items: totalCount,//用来计算页数的项目总数
-                itemsOnPage: pageSize,//每个页面显示的项目数
-                currentPage : currentPage,
-                cssStyle: 'light-theme',//CSS主题，一共三种，light-theme，dark-theme和compact-theme
-                prevText:'上一页',
-                nextText:'下一页',
-                onPageClick : function(pagerNumber,event) {
+                items: totalCount, //用来计算页数的项目总数
+                itemsOnPage: pageSize, //每个页面显示的项目数
+                currentPage: currentPage,
+                cssStyle: 'light-theme', //CSS主题，一共三种，light-theme，dark-theme和compact-theme
+                prevText: '上一页',
+                nextText: '下一页',
+                onPageClick: function(pagerNumber, event) {
                     that.$pageNumber.val(pagerNumber);
                     that.$listForm.submit();
                 }
@@ -117,8 +125,8 @@
     };
     // Pager CLASS DEFINITION END
     window.pager = {
-        init: function(totalCount,pageSize,totalPages,currentPage) {
-            return new Pager(totalCount,pageSize,totalPages,currentPage);
+        init: function(options) {
+            return new Pager(options);
         }
     };
 })(jQuery, window, document);

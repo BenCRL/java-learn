@@ -49,7 +49,12 @@
 	<script type="text/javascript">
 		$(function() {
 			// 初始化分页控件
-			pager.init('${pager.totalCount}', '${pager.pageSize}','${pager.pageCount}', '${pager.pageNumber}');
+			pager.init({
+				totalCount : '${pager.totalCount}',
+				pageSize : '${pager.pageSize}',
+				totalPages : '${pager.pageCount}',
+				currentPage : '${pager.pageNumber}'
+			});
 		});
 	</script>
 </body>
