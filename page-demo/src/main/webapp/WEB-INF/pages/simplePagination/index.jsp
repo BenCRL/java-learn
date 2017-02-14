@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/pages/commons/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -8,14 +7,6 @@
 <%@include file="/WEB-INF/pages/commons/inc.jsp"%>
 <!-- 引入simplePagination.css -->
 <link href="${ctx}/resources/css/jquery/simplePagination.css" rel="stylesheet" />
-<!-- 引入jQuery -->
-<script src="${ctx}/resources/js/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
-<!-- 引入Bootstrap -->
-<script src="${ctx}/resources/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<!-- 引入jquery.simplePagination.js -->
-<script src="${ctx}/resources/js/jquery/jquery.simplePagination.js" type="text/javascript"></script>
-<!-- 引入index.js 此为自定义的jquery.simplePagination.js辅助类库 -->
- <script src="${ctx}/resources/js/simplePagination/index.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="container">
@@ -25,8 +16,7 @@
 		</div>
 		<form id="listForm" role="form" action="${ctx}/simplePagination/list" method="post">
 			<div class="form-group">
-				<label for="userName">User Name</label> 
-				<input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
+				<label for="userName">User Name</label> <input id="userName" name="userName" type="text" class="form-control" style="width: 400px;" value="${userForm.userName}" placeholder="Enter user name" />
 			</div>
 			<button type="submit" class="btn btn-default">Submit</button>
 			<button type="reset" class="btn btn-default">Reset</button>
@@ -51,5 +41,16 @@
 			<%@include file="/WEB-INF/pages/simplePagination/pager.jsp"%>
 		</form>
 	</div>
+	<%@include file="/WEB-INF/pages/commons/incjs.jsp"%>
+	<!-- 引入jquery.simplePagination.js -->
+	<script src="${ctx}/resources/js/jquery/jquery.simplePagination.js" type="text/javascript"></script>
+	<!-- 引入index.js 此为自定义的jquery.simplePagination.js辅助类库 -->
+	<script src="${ctx}/resources/js/simplePagination/index.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function() {
+			// 初始化分页控件
+			pager.init('${pager.totalCount}', '${pager.pageSize}','${pager.pageCount}', '${pager.pageNumber}');
+		});
+	</script>
 </body>
 </html>
